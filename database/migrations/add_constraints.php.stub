@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 use Stanleykinkelaar\FilamentShop\Models\Category;
 use Stanleykinkelaar\FilamentShop\Models\Brand;
 use Stanleykinkelaar\FilamentShop\Models\Customer;
-use Stanleykinkelaar\FilamentShop\Models\Discount;
 use Stanleykinkelaar\FilamentShop\Models\Order;
 use Stanleykinkelaar\FilamentShop\Models\Product;
 
@@ -19,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(Brand::class)->after('id')->nullable()->constrained();
         });
 
-        Schema::table('discounts', function (Blueprint $table) {
+        Schema::table('coupons', function (Blueprint $table) {
             $table->foreignIdFor(Customer::class)->after('id')->nullable()->constrained();
         });
 
@@ -40,8 +39,8 @@ return new class extends Migration
             $table->dropConstrainedForeignIdFor(Brand::class);
         });
 
-        Schema::table('discounts', function (Blueprint $table) {
-            $table->dropConstrainedForeignIdFor(Discount::class);
+        Schema::table('coupons', function (Blueprint $table) {
+            $table->dropConstrainedForeignIdFor(Customer::class);
         });
 
         Schema::table('order_lines', function (Blueprint $table) {
