@@ -29,28 +29,53 @@ composer require stanleykinkelaar/filament-shop
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="filament-shop-migrations"
-php artisan migrate
+php artisan filament-shop:setup
 ```
 
-You can publish the config file with:
+[//]: # (You can publish the config file with:)
 
+[//]: # ()
+[//]: # (```bash)
+
+[//]: # (php artisan vendor:publish --tag="filament-shop-config")
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (This is the contents of the published config file:)
+
+[//]: # ()
+[//]: # (```php)
+
+[//]: # (return [)
+
+[//]: # (];)
+
+[//]: # (```)
+
+Update the config/filament.php file to use the chiiya/filament-access-control package
+```php 
+'auth' => [
+    'guard' => env('FILAMENT_AUTH_GUARD', 'filament'),
+    'pages' => [
+        'login' => \Chiiya\FilamentAccessControl\Http\Livewire\Login::class,
+    ],
+],
+```
+
+After all that run the user creation command
 ```bash
-php artisan vendor:publish --tag="filament-shop-config"
+php artisan filament-shop:user
 ```
 
-This is the contents of the published config file:
+[//]: # (Optionally, you can publish the views using)
 
-```php
-return [
-];
-```
+[//]: # ()
+[//]: # (```bash)
 
-Optionally, you can publish the views using
+[//]: # (php artisan vendor:publish --tag="filament-shop-views")
 
-```bash
-php artisan vendor:publish --tag="filament-shop-views"
-```
+[//]: # (```)
 
 ## Usage
 

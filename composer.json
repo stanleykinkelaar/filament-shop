@@ -20,6 +20,7 @@
         "doctrine/dbal": "^3.3",
         "illuminate/contracts": "^9.0",
         "spatie/laravel-package-tools": "^1.9.2",
+        "spatie/laravel-permission": "^5.5",
         "chiiya/filament-access-control": "1.4"
     },
     "require-dev": {
@@ -36,8 +37,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Stanleykinkelaar\\FilamentShop\\": "src",
-            "Stanleykinkelaar\\FilamentShop\\Database\\Factories\\": "database/factories"
+            "Stanleykinkelaar\\FilamentShop\\": "src"
         }
     },
     "autoload-dev": {

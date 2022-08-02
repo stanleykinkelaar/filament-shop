@@ -4,12 +4,21 @@ namespace Stanleykinkelaar\FilamentShop;
 
 use Filament\PluginServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use Stanleykinkelaar\FilamentShop\Commands\FilamentShopCommand;
+use Stanleykinkelaar\FilamentShop\Commands\FilamentShopSetupCommand;
+use Stanleykinkelaar\FilamentShop\Commands\FilamentShopUserCommand;
+use Stanleykinkelaar\FilamentShop\Resources\BrandResource;
+use Stanleykinkelaar\FilamentShop\Resources\CategoryResource;
+use Stanleykinkelaar\FilamentShop\Resources\CustomerResource;
+use Stanleykinkelaar\FilamentShop\Resources\DiscountResource;
+
 
 class FilamentShopServiceProvider extends PluginServiceProvider
 {
     protected array $resources = [
-
+        CustomerResource::class,
+        BrandResource::class,
+        CategoryResource::class,
+        DiscountResource::class,
     ];
 
     public function configurePackage(Package $package): void
@@ -17,17 +26,19 @@ class FilamentShopServiceProvider extends PluginServiceProvider
         $package
             ->name('filament-shop')
             ->hasConfigFile('filament-shop')
-            ->hasMigrations(
-                [
-                    'create_products_table',
-                    'create_customers_table',
-                    'create_orders_table',
-                    'create_categories_table',
-                    'create_brands_table',
-                    'create_discounts_table',
-                ]
-            )
-            ->runsMigrations()
-            ->hasCommand(FilamentShopCommand::class);
+            ->hasCommands([
+                FilamentShopSetupCommand::class,
+                FilamentShopUserCommand::class,
+            ])
+            ->hasMigrations([
+                'create_products_table',
+                'create_customers_table',
+                'create_orders_table',
+                'create_categories_table',
+                'create_brands_table',
+                'create_discounts_table',
+                'create_order_lines_table',
+                'add_constraints',
+            ]);
     }
 }
