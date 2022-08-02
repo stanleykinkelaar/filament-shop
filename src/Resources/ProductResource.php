@@ -2,7 +2,6 @@
 
 namespace Stanleykinkelaar\FilamentShop\Resources;
 
-use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -18,9 +17,13 @@ use Stanleykinkelaar\FilamentShop\Resources\ProductResourcePages\ListProduct;
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-gift';
+
     protected static ?string $navigationGroup = 'Shop';
+
     protected static ?string $navigationLabel = 'filament-shop::navigation.products';
+
     protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form

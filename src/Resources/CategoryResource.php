@@ -15,9 +15,13 @@ use Stanleykinkelaar\FilamentShop\Resources\CategoryResourcePages\ListCategory;
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-view-list';
+
     protected static ?string $navigationGroup = 'Shop';
+
     protected static ?string $navigationLabel = 'filament-shop::navigation.categories';
+
     protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form

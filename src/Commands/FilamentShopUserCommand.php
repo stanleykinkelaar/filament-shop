@@ -2,12 +2,11 @@
 
 namespace Stanleykinkelaar\FilamentShop\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Hash;
 use Chiiya\FilamentAccessControl\Enumerators\Feature;
 use Chiiya\FilamentAccessControl\Enumerators\RoleName;
 use Chiiya\FilamentAccessControl\Models\FilamentUser;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
 
 class FilamentShopUserCommand extends Command
 {

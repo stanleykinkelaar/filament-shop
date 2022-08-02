@@ -15,9 +15,13 @@ use Stanleykinkelaar\FilamentShop\Resources\BrandResourcePages\ListBrand;
 class BrandResource extends Resource
 {
     protected static ?string $model = Brand::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+
     protected static ?string $navigationGroup = 'Shop';
+
     protected static ?string $navigationLabel = 'filament-shop::navigation.brands';
+
     protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
